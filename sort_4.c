@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
+/*   sort_4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 15:51:23 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/06/23 15:51:23 by msimoes-         ###   ########.fr       */
+/*   Created: 2022/08/28 05:55:29 by msimoes-          #+#    #+#             */
+/*   Updated: 2022/08/28 05:55:29 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int  check_A_sort(t_list *a)
+void sort_4(t_list **a, t_list **b)
 {
-    while (a->next)
-	    {
-		    if (a->info > a->next->info)
-			    return (0);
-		    a = a->next;
-	    }
-	    return (1);
+	int	min;
+
+	min = INT_MAX;
+    find_min(*a, &min);
+	while ((*a)->info != min)
+		rotate_a(a);
+	push_b(b, a);
+	sort_3(a);
+	push_a(a, b);
 }
-
-int	is_sorted(t_list *a, t_list *b)
-{
-	if (check_A_sort(a) && !b)
-		return (1);
-	return (0);
-}
-
-

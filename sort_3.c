@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 15:51:23 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/06/23 15:51:23 by msimoes-         ###   ########.fr       */
+/*   Created: 2022/07/09 06:30:31 by msimoes-          #+#    #+#             */
+/*   Updated: 2022/07/09 06:30:31 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int  check_A_sort(t_list *a)
+void sort_3(t_list **a)
 {
-    while (a->next)
-	    {
-		    if (a->info > a->next->info)
-			    return (0);
-		    a = a->next;
-	    }
-	    return (1);
+	int	max;
+
+	max = INT_MIN;
+	find_max(*a, &max);
+	while (!is_sorted(*a, NULL))
+	{
+		if ((*a)->info == max)
+			rotate_a(a);
+		else
+			swap_a(a);
+	}
 }
-
-int	is_sorted(t_list *a, t_list *b)
-{
-	if (check_A_sort(a) && !b)
-		return (1);
-	return (0);
-}
-
-

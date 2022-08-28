@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 /*
 sa = swap top two numbers in stack A
 sb = swap top two numbers in stack B
 ss = sa + sb 
 */
+
 void	swap_a(t_list **a)
 {
 	int	tmp;

@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 /*
 pa = top of B goes to top of A
 pb = top of A goes to top of B
 */
+
 void	push_a(t_list **a, t_list **b)
 {
 	t_list	*tmp;
