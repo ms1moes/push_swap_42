@@ -22,35 +22,28 @@ void	rotate_a(t_list **a)
 {
 	t_list	*tmp;
 
-	tmp = (*a)->next;
-	ft_lstadd_back(&tmp, *a);
-	(*a)->next = NULL;
-	*a = tmp;
-	write(1, "ra\n", 3);
+    tmp = (*a)->next;
+    ft_lstadd_back(&tmp, *a);
+    (*a)->next = NULL;
+    *a = tmp;
+    write(1, "ra\n", 3);
 }
 
 void	rotate_b(t_list **b)
 {
-	t_list	*tmp;
+   t_list	*tmp;
 
-	tmp = (*b)->next;
-	ft_lstadd_back(&tmp, *b);
-	(*b)->next = NULL;
-	*b = tmp;
-	write(1, "rb\n", 3);
+    tmp = (*b)->next;
+    ft_lstadd_back(&tmp, *b);
+    (*b)->next = NULL;
+    *b = tmp;
+    write(1, "rb\n", 3);
+
 }
 
-void	rotate_all(t_list **a, t_list **b)
+void rotate_both(t_list **a, t_list **b)
 {
-	t_list	*tmp;
-
-	tmp = (*a)->next;
-	ft_lstadd_back(&tmp, *a);
-	(*a)->next = NULL;
-	*a = tmp;
-	tmp = (*b)->next;
-	ft_lstadd_back(&tmp, *b);
-	(*b)->next = NULL;
-	*b = tmp;
-	write(1, "rr\n", 3);
+    rotate_a(a);
+    rotate_b(b);
+    write(1, "rr\n", 3);
 }

@@ -18,10 +18,10 @@ rrb = bottom number goes to top of stack B
 rrr = rra + rrb
 */
 
-void	rotate_inv_a(t_list **a)
+void	invrotate_a(t_list **a)
 {
-	t_list	*tmp2;
 	t_list	*tmp;
+	t_list	*tmp2;
 
 	tmp = ft_lstlast((*a));
 	tmp2 = (*a);
@@ -29,13 +29,13 @@ void	rotate_inv_a(t_list **a)
 		tmp2 = tmp2->next;
 	ft_lstadd_front(a, tmp);
 	tmp2->next = NULL;
-	write(1, "rra\n", 4);;
+	write(1, "rra\n", 4);
 }
 
-void	rotate_inv_b(t_list **b)
+void	invrotate_b(t_list **b)
 {
-	t_list	*tmp2;
 	t_list	*tmp;
+	t_list	*tmp2;
 
 	tmp = ft_lstlast((*b));
 	tmp2 = (*b);
@@ -43,25 +43,12 @@ void	rotate_inv_b(t_list **b)
 		tmp2 = tmp2->next;
 	ft_lstadd_front(b, tmp);
 	tmp2->next = NULL;
-	write(1, "rrb\n", 4);;
+	write(1, "rrb\n", 4);
 }
 
-void	rotate_inv_all(t_list **a, t_list **b)
+void invrotate_both(t_list **a, t_list **b)
 {
-	t_list	*tmp2;
-	t_list	*tmp;
-
-	tmp = ft_lstlast((*a));
-	tmp2 = (*a);
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	ft_lstadd_front(a, tmp);
-	tmp2->next = NULL;
-	tmp = ft_lstlast((*b));
-	tmp2 = (*b);
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	ft_lstadd_front(b, tmp);
-	tmp2->next = NULL;
-	write(1, "rrr\n", 4);;
+	invrotate_a(a);
+	invrotate_b(b);
+	write(1, "rrr\n", 4);
 }

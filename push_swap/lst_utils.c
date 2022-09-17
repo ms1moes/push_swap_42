@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_exit.c                                        :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 07:05:12 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/07/11 07:05:12 by msimoes-         ###   ########.fr       */
+/*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
+/*   Updated: 2022/09/17 12:37:43 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	free_lst(t_list **stack)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+    t_list *tmp;
 
-	if (stack)
-	{
-		if (*stack)
-		{
-			while ((*stack))
-			{
-				tmp = (*stack);
-				(*stack) = (*stack)->next;
-				free(tmp);
-			}
-		}
-	}
+    tmp = *lst;
+    while (tmp->next)
+        tmp = tmp->next;
+    tmp->next = new;
 }
 
-void	exit_free(t_list **a, t_list **b, int i)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (i != 0)
-		printf_fd(2, "Error\n");
-	free_lst(a);
-	free_lst(b);
-	exit(i);
+    new->next = *lst;
+    *lst = new;
+
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
