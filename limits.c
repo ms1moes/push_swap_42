@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   limits.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msimoes- <msimoes-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 18:35:23 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/20 16:00:39 by msimoes-         ###   ########.fr       */
+/*   Created: 2022/09/20 17:01:00 by msimoes-          #+#    #+#             */
+/*   Updated: 2022/09/20 18:41:13 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void free_a(t_list **a)
-{
-    t_list *tmp;
-    
-    while(*a)
-    {
-        tmp = (*a);
-        (*a) = (*a)->next;
-        free(tmp);                        
-    }           
+void find_min(t_list *a, int n)
+{ 
+    while(a)
+        {
+         if(n > a->info)
+            n = a->info;   
+        a = a->next;
+        }
 }
 
-void free_msg(t_list **a, int i)
+void find_max(t_list *a, int n)
+{ 
+    while(a)
+        {
+         if(n < a->info)
+            n = a->info;   
+        a = a->next;
+        }
+}
+
+void find_min_max(t_list *a, int max, int min)
 {
-    if (i)
-        write(2, "Error\n", 6);
-    if (*a)
-        free_a(a);
-    exit(i);
+    find_max(a, min);
+    find_min(a, max);
 }
