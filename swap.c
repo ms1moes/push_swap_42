@@ -38,15 +38,9 @@ void	swap_b(t_list **b)
 	write(1, "sb\n", 3);
 }
 
-void	swap_all(t_list **a, t_list **b)
+void	swap_both(t_list **a, t_list **b)
 {
-	int	tmp;
-
-	tmp = (*a)->info;
-	(*a)->info = (*a)->next->info;
-	(*a)->next->info = tmp;
-	tmp = (*b)->info;
-	(*b)->info = (*b)->next->info;
-	(*b)->next->info = tmp;
+	swap_a(a);
+	swap_b(b);
 	write(1, "ss\n", 3);
 }

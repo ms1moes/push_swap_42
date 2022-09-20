@@ -18,7 +18,7 @@ rrb = bottom number goes to top of stack B
 rrr = rra + rrb
 */
 
-void	invrotate_a(t_list **a)
+void	revrotate_a(t_list **a)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -32,7 +32,7 @@ void	invrotate_a(t_list **a)
 	write(1, "rra\n", 4);
 }
 
-void	invrotate_b(t_list **b)
+void	revrotate_b(t_list **b)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -46,9 +46,9 @@ void	invrotate_b(t_list **b)
 	write(1, "rrb\n", 4);
 }
 
-void invrotate_both(t_list **a, t_list **b)
+void revrotate_both(t_list **a, t_list **b)
 {
-	invrotate_a(a);
-	invrotate_b(b);
+	revrotate_a(a);
+	revrotate_b(b);
 	write(1, "rrr\n", 4);
 }

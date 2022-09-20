@@ -26,4 +26,12 @@ typedef struct node
     
 }   t_list;
 
+void    ft_lstadd_back(t_list **lst, t_list *new);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+t_list  *ft_lstlast(t_list *lst);
+void    sort_2(t_list **a);
+void	swap_a(t_list **a);
+int parsing(char **av, t_list **a);
+
+
 #endif
