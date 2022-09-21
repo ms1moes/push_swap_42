@@ -75,10 +75,10 @@ int parsing(char **av, t_list **a)
 	{
 		n = atoi(av[i]);
 		if(duplicate_checker(*a, n) == 1)
-			return(-1);
+			free_msg(a, 1);
 		ft_lstadd_back(a, create_node(n));
 		if (!*a)
-			return (-1);
+			free_msg(a, 1);
 	}
 	return (0);
 }

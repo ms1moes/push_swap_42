@@ -8,6 +8,9 @@ SRC =	push.c\
 			small_sort.c\
 			main.c\
 			parse.c \
+			free.c\
+			limits.c\
+			sorted.c\
 
 OBJECTS = $(SRC:.c=.o)
 
