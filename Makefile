@@ -11,6 +11,7 @@ SRC =	push.c\
 			free.c\
 			limits.c\
 			sorted.c\
+			index.c\
 
 OBJECTS = $(SRC:.c=.o)
 

@@ -12,28 +12,34 @@
 
 #include "push_swap.h"
 
-void index_list(t_list *a)
+void index_list(t_list **a)
 {
-    int i;
-    int min;
+    int max;
+    int size;
     t_list *tmp;
 
-    i = 0;
-    min = INT_MAX;
-    while(++i < ft_lstsize(a))
+    size = ft_lstsize(*a);
+    max = INT_MIN;
+    while (size--)
     {
-        while(a)
+        tmp = *a;
+        max = INT_MIN;
+        while (tmp)
         {
-             if(a->info < min && a->index == 0)
-                min = a->info;   
-        a = a->next;
-        }
-        tmp = a;
-        while(tmp)
-        {
-            if(tmp->info == min)
-                tmp->index = i;
+            if (tmp->info > max && tmp->index == 0)
+            {
+                max = tmp->info;
+                max = tmp->index = size;
+            }
             tmp = tmp->next;
         }
-        min = INT_MAX;
+        tmp = *a;
+        while (tmp)
+        {
+            if (tmp->info != max)
+                tmp->index = 0;
+            tmp = tmp->next;
+        }
     }
+
+}

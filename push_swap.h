@@ -22,6 +22,7 @@ typedef struct node
 {
  int            info;
  int            index;
+ int            *stack;
  struct node*   next;
     
 }   t_list;
@@ -47,10 +48,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int	    ft_lstsize(t_list *lst);
+void    index_list(t_list **a);
 
 //sorts
 void	sort_2(t_list **a);
 void    sort_3(t_list **a);
+void    sort_4(t_list **a, t_list **b);
+void    sort_5(t_list **a, t_list **b);
 int	    is_sorted(t_list *a, t_list *b);
 
 
@@ -59,7 +63,7 @@ int		parsing(char **av, t_list **a);
 void	free_msg(t_list **a, int i);
 void    find_min_max(t_list *a, int *max, int *min);
 void    find_min(t_list *a, int *n);
-void    find_max(t_list *a, int *n);
+void      find_max(t_list *a, int *n);
 
 
 #endif
