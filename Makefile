@@ -12,6 +12,7 @@ SRC =	push.c\
 			limits.c\
 			sorted.c\
 			index.c\
+			radix.c\
 
 OBJECTS = $(SRC:.c=.o)
 
