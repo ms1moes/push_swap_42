@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/22 07:16:18 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:00:48 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void sort_3(t_list **a)
 void sort_4(t_list **a, t_list **b)
 {
     int min;
-    
+    int max;
+
     min = INT_MAX;
-    find_min(*a, &min);
-    while ((*a)->info != min)
+    max = INT_MIN;
+    find_min_max(*a, &min, &max);
+    while ((*a)->info != min && (*a)->info != max)
         rotate_a(a);
     push_b(a, b);
     sort_3(a);
@@ -46,18 +48,21 @@ void sort_4(t_list **a, t_list **b)
 void sort_5(t_list **a, t_list **b)
 {
     int min;
-    
+    int max;
+
     min = INT_MAX;
-    find_min(*a, &min);
-    while ((*a)->info != min)
+    max = INT_MIN;
+    find_min_max(*a, &min, &max);
+   while ((*a)->info != max && (*a)->info != min)
         rotate_a(a);
     push_b(a, b);
-    min = INT_MAX;
-    find_min(*a, &min);
-    while ((*a)->info != min)
+    while ((*a)->info != min && (*a)->info != max)
         rotate_a(a);
     push_b(a, b);
     sort_3(a);
+    if((*b)->info > (*b)->next->info)
+        swap_b(b);
     push_a(a, b);
     push_a(a, b);
+    rotate_a(a);
 }
