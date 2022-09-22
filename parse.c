@@ -60,6 +60,7 @@ t_list *create_node(int n)
 	if (!node)
 		return (NULL);
 	node->info = n;
+	node->index = 0;
 	node->next = NULL;
 	return node;
 }
