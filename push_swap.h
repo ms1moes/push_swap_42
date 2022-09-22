@@ -22,7 +22,6 @@ typedef struct node
 {
  int            info;
  int            index;
- int            *stack;
  struct node*   next;
     
 }   t_list;
