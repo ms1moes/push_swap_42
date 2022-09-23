@@ -59,7 +59,7 @@ int	    is_sorted(t_list *a, t_list *b);
 //outras
 int		parsing(char **av, t_list **a);
 void	free_msg(t_list **a, int i);
-void    find_max_bits(t_list *a, int *max_bits);
+int     find_max_bits(t_list *a);
 void    find_min(t_list *a, int *n);
 void    find_max(t_list *a, int *n);
 void    find_min_max(t_list *a, int *max, int *min);
