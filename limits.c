@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   limits.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msimoes- <msimoes-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:01:00 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/23 14:03:37 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:58:35 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 void find_min(t_list *a, int *n)
 { 
     while(a)
-        {
-         if(*n > a->info)
+    {
+        if(*n > a->info)
             *n = a->info;   
         a = a->next;
-        }
+    }
 }
 
 void find_max(t_list *a, int *n)
 { 
     while(a)
-        {
-         if(*n < a->info)
+    {
+        if(*n < a->info)
             *n = a->info;   
         a = a->next;
-        }
+    }
 }
 
 void find_min_max(t_list *a, int *max, int *min)
@@ -47,6 +47,6 @@ int find_max_bits(t_list *a)
     max = INT_MIN;
     find_max(a, &max);
     while (max && ++bits)
-        max = max >> 1;
+        max >>= 1;
     return (bits);
 }

@@ -22,10 +22,10 @@ void	rotate_a(t_list **a)
 {
 	t_list	*tmp;
 
-    tmp = (*a)->next;
-    ft_lstadd_back(&tmp, *a);
-    (*a)->next = NULL;
-    *a = tmp;
+    tmp = *a;
+    (*a) = (*a)->next;
+    ft_lstadd_back(a, tmp);
+    tmp->next = NULL;
     write(1, "ra\n", 3);
 }
 
@@ -33,10 +33,10 @@ void	rotate_b(t_list **b)
 {
    t_list	*tmp;
 
-    tmp = (*b)->next;
-    ft_lstadd_back(&tmp, *b);
-    (*b)->next = NULL;
-    *b = tmp;
+    tmp = *b;
+    *b = (*b)->next;
+    ft_lstadd_back(b, tmp);
+    tmp->next = NULL;
     write(1, "rb\n", 3);
 
 }

@@ -22,7 +22,7 @@ typedef struct node
 {
  int            info;
  int            index;
- struct node*   next;
+ struct node    *next;
     
 }   t_list;
 
@@ -53,6 +53,7 @@ void	sort_2(t_list **a);
 void    sort_3(t_list **a);
 void    sort_4(t_list **a, t_list **b);
 void    sort_5(t_list **a, t_list **b);
+void    radix_sort(t_list **a, t_list **b);
 int	    is_sorted(t_list *a, t_list *b);
 
 
@@ -63,6 +64,7 @@ int     find_max_bits(t_list *a);
 void    find_min(t_list *a, int *n);
 void    find_max(t_list *a, int *n);
 void    find_min_max(t_list *a, int *max, int *min);
+void    set_index(t_list **a);
 
 
 # endif
