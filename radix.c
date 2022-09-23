@@ -16,24 +16,23 @@ void radix_sort(t_list **a, t_list **b)
 {
     int max_bits;
     int i;
-    int j;
+    int size;
     t_list *tmp;
 
     max_bits = find_max_bits(*a);
     i = -1;
     while(++i < max_bits)
     {
-        j = -1;
-        while (++j < ft_lstsize(*a))
+        size = ft_lstsize(*a);
+        while (size--)
         {
             tmp = *a;
-            if((tmp->index >> i & 1) == 1)
+            if((tmp->index >> i & 1))
                 rotate_a(a);
             else
                 push_b(a, b);
         }
-        tmp = *a;
-        while (*b)
+        while (*b)  
             push_a(a, b);
     }
 
