@@ -23,33 +23,50 @@ static int	duplicate_checker(t_list *a, int n)
 	return (0);
 }
 
-int atoi(const char *str)
+int atoi_helper(char *str)
 {
-	long long	number;
-	int			signal;
+	int i;
+	int j;
+
+	i = -1;
+	j = 0;
+	if (str[0] == '\0')
+		return (1);
+	while (str[++i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+			j++;
+		if ((str[i] >= 'a' && str[i] <= 'z') &&
+		 (str[i] >= 'A' && str[i] <= 'Z')) 
+				return (1);
+		if(j > 1)
+			return (1);
+	}
+	return (0);
+}
+
+long ft_atoi(char *str)
+{
+	long long	n;
+	int			sig;
 	int			i;
 
-	number = 0;
-	signal = 1;
+	n = 0;
+	sig = 1;
 	i = 0;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
-		i++;
+
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
-				signal *= -1;
+		sig = (str[i] != '-') - (str[i] == '-');
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		number = number * 10 + signal * (str[i] - 48);
-		i++;
-		if (number > 2147483647)
-			return (-1);
-		if (number < -2147483648)
-			return (0);
+		n = n * 10 + sig * (str[i++] - '0');
+		if (n > INT_MAX || n < INT_MIN)
+			return (2147483648);	
 	}
-	return (number);
+	return (n);
 }
 
 t_list *create_node(int n)
@@ -68,13 +85,17 @@ t_list *create_node(int n)
 int parsing(char **av, t_list **a)
 {
 	int i;
-	int n;
+	long long n;
 
 	n = 0;
 	i = 0;
 	while(av[++i])
 	{
-		n = atoi(av[i]);
+		if (atoi_helper(av[i]))
+			free_msg(a, 1);
+		n = ft_atoi(av[i]);
+		if (n > INT_MAX)
+			free_msg(a, 1);
 		if(duplicate_checker(*a, n) == 1)
 			free_msg(a, 1);
 		ft_lstadd_back(a, create_node(n));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msimoes- <msimoes-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/23 19:14:29 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/25 20:25:53 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char **av)
         free_msg(&a, 1);
     set_index(&a);
     b = a;
-    printf("------Stack A------\n");
+     printf("------Stack A------\n");
     while (b)
     {
         printf("%i\t%i\n", b->info, b->index);
@@ -36,7 +36,7 @@ int main(int ac, char **av)
     if(is_sorted(a, NULL))
         free_msg(&a, 0);
     if (ft_lstsize(a) == 2)
-		swap_a(&a);
+		sort_2(&a);
 	else if (ft_lstsize(a) == 3)
 		sort_3(&a);
     else if (ft_lstsize(a) == 4)
@@ -45,9 +45,8 @@ int main(int ac, char **av)
         sort_5(&a, &b);
     else
         radix_sort(&a, &b);
-    
     b = a;
-    printf("------Stack A------\n");
+     printf("------Stack A------\n");
     while (b)
     {
         printf("%i\t%i\n", b->info, b->index);

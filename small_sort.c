@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msimoes- <msimoes-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/23 17:46:41 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/25 20:24:26 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void sort_2(t_list **a)
+{
+    if ((*a)->info > (*a)->next->info)
+        swap_a(a);
+}
 
 void sort_3(t_list **a)
 {
