@@ -81,13 +81,16 @@ t_list *create_node(int n)
 	return node;
 }
 
-int parsing(char **av, t_list **a)
+int parsing(int ac, char **av, t_list **a)
 {
 	int i;
 	long long n;
 
 	n = 0;
-	i = 0;
+	if(ac ==2)
+		i = -1;
+	else
+		i = 0;
 	while(av[++i])
 	{
 		if (atoi_helper(av[i]))

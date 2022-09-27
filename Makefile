@@ -13,6 +13,7 @@ SRC =	push.c\
 			sorted.c\
 			index.c\
 			radix.c\
+			split.c\
 
 OBJECTS = $(SRC:.c=.o)
 
