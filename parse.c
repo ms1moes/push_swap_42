@@ -36,8 +36,7 @@ int atoi_helper(char *str)
 	{
 		if (str[i] == '-' || str[i] == '+')
 			j++;
-		if ((str[i] >= 'a' && str[i] <= 'z') &&
-		 (str[i] >= 'A' && str[i] <= 'Z')) 
+		if ((str[i] < '0' || str[i] > '9') && (str[i] != '-' && str[i] != '+'))
 				return (1);
 		if(j > 1)
 			return (1);
