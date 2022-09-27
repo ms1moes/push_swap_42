@@ -16,8 +16,8 @@ void find_min(t_list *a, int *n)
 { 
     while(a)
     {
-        if(*n > a->info)
-            *n = a->info;   
+        if(*n > a->index)
+            *n = a->index;   
         a = a->next;
     }
 }
@@ -26,8 +26,8 @@ void find_max(t_list *a, int *n)
 { 
     while(a)
     {
-        if(*n < a->info)
-            *n = a->info;   
+        if(*n < a->index)
+            *n = a->index;   
         a = a->next;
     }
 }
