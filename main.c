@@ -38,14 +38,5 @@ int main(int ac, char **av)
         sort_5(&a, &b);
     else
         radix_sort(&a, &b);
-     b = a;
-    printf("------Stack A------\n");
-    while (b)
-    {
-        printf("%i\t%i\n", b->info, b->index);
-        b = b->next;
-    }
-    b = NULL;
-    printf("------Fim Stack A------\n");
     free_msg(&a, 0);
 }
