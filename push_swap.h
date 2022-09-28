@@ -42,7 +42,7 @@ void	push_a(t_list **a, t_list **b);
 void	push_b(t_list **a, t_list **b);
 
 //lst_utils
-void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);

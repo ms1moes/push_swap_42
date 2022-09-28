@@ -84,8 +84,8 @@ t_list	*create_node(int n)
 
 int	parsing(int ac, char **av, t_list **a)
 {
-	int			i;
-	long long	n;
+	int		i;
+	long	n;
 
 	n = 0;
 	i = 0;
@@ -93,6 +93,8 @@ int	parsing(int ac, char **av, t_list **a)
 	{
 		i = -1;
 		av = ft_split(av[1], ' ');
+		if (!av)
+			free_msg(a, 1);
 	}
 	while (av[++i])
 	{
@@ -101,8 +103,7 @@ int	parsing(int ac, char **av, t_list **a)
 			free_msg(a, 1);
 		if (duplicate_checker(*a, n) == 1)
 			free_msg(a, 1);
-		ft_lstadd_back(a, create_node(n));
-		if (!*a)
+		if (ft_lstadd_back(a, create_node(n)))
 			free_msg(a, 1);
 	}
 	if (ac == 2)
