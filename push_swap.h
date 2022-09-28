@@ -58,13 +58,15 @@ int	    is_sorted(t_list *a, t_list *b);
 
 
 //outras
-int		parsing(char **av, t_list **a);
+int		parsing(int ac, char **av, t_list **a);
 void	free_msg(t_list **a, int i);
 int     find_max_bits(t_list *a);
 void    find_min(t_list *a, int *n);
 void    find_max(t_list *a, int *n);
 void    find_min_max(t_list *a, int *max, int *min);
 void    set_index(t_list **a);
+int     ft_count_words(char const *str, char c);
+char    **ft_split(char const *s, char c);
 
 
 # endif

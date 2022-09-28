@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/25 20:25:53 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/27 12:08:51 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,12 @@ int main(int ac, char **av)
     a = NULL;
     b = NULL;
     if (ac <= 1)
-        free_msg(&a, 1);
-    if (parsing(av, &a))
+        free_msg(&a, 0);
+    if (ac == 2)
+        av = ft_split(av[1], ' ');
+    if (parsing(ac, av, &a))
         free_msg(&a, 1);
     set_index(&a);
-    b = a;
-     printf("------Stack A------\n");
-    while (b)
-    {
-        printf("%i\t%i\n", b->info, b->index);
-        b = b->next;
-    }
-    b = NULL;
-    printf("------Fim Stack A------\n");
     if(is_sorted(a, NULL))
         free_msg(&a, 0);
     if (ft_lstsize(a) == 2)
@@ -45,14 +38,5 @@ int main(int ac, char **av)
         sort_5(&a, &b);
     else
         radix_sort(&a, &b);
-    b = a;
-     printf("------Stack A------\n");
-    while (b)
-    {
-        printf("%i\t%i\n", b->info, b->index);
-        b = b->next;
-    }
-    b = NULL;
-    printf("------Fim Stack A------\n");
     free_msg(&a, 0);
 }

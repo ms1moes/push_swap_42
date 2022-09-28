@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/25 20:24:26 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:32:02 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void sort_4(t_list **a, t_list **b)
     push_b(a, b);
     sort_3(a);
     push_a(a, b);
+    if ((*a)->index == max)
+        rotate_a(a);
 }
 
 void sort_5(t_list **a, t_list **b)
@@ -66,9 +68,9 @@ void sort_5(t_list **a, t_list **b)
         rotate_a(a);
     push_b(a, b);
     sort_3(a);
-    if((*b)->index > (*b)->next->index)
-        swap_b(b);
-    push_a(a, b);
-    push_a(a, b);
-    rotate_a(a);
+    if ((*b)->index < (*b)->next->index)
+		rotate_b(b);
+	push_a(a, b);
+	rotate_a(a);
+	push_a(a, b);
 }
