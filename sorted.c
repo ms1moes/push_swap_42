@@ -12,22 +12,20 @@
 
 #include "push_swap.h"
 
-static int  check_A_sort(t_list *a)
+static int	check(t_list *a)
 {
-    while (a->next)
-	    {
-		    if (a->info > a->next->info)
-			    return (0);
-		    a = a->next;
-	    }
-	    return (1);
+	while (a->next)
+	{
+		if (a->info > a->next->info)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }
 
 int	is_sorted(t_list *a, t_list *b)
 {
-	if (check_A_sort(a) && !b)
+	if (check(a) && !b)
 		return (1);
 	return (0);
 }
-
-

@@ -12,28 +12,27 @@
 
 #include "push_swap.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    if (!new)
+	if (!new)
 		return ;
 	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-    tmp = *lst;
-    while (tmp->next)
-        tmp = tmp->next;
-    tmp->next = new;
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    new->next = *lst;
-    *lst = new;
-
+	new->next = *lst;
+	*lst = new;
 }
 
 t_list	*ft_lstlast(t_list *lst)
@@ -45,13 +44,13 @@ t_list	*ft_lstlast(t_list *lst)
 
 int	ft_lstsize(t_list *lst)
 {
-	int size;
+	int	size;
 
 	size = 0;
-	while(lst)
+	while (lst)
 	{
 		lst = lst->next;
 		size++;
 	}
-	return(size);
+	return (size);
 }

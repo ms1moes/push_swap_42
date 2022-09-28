@@ -46,7 +46,7 @@ void	revrotate_b(t_list **b)
 	write(1, "rrb\n", 4);
 }
 
-void revrotate_both(t_list **a, t_list **b)
+void	revrotate_both(t_list **a, t_list **b)
 {
 	revrotate_a(a);
 	revrotate_b(b);

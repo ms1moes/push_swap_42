@@ -17,24 +17,24 @@ pa = top of B goes to top of A
 pb = top of A goes to top of B
 */
 
-void    push_b(t_list **a, t_list **b)
+void	push_b(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
 	tmp = (*a)->next;
-    (*a)->next = (*b);
-    (*b) = (*a);
-    (*a) = tmp;
+	(*a)->next = (*b);
+	(*b) = (*a);
+	(*a) = tmp;
 	write(1, "pb\n", 3);
 }
 
-void push_a(t_list **a, t_list **b)
+void	push_a(t_list **a, t_list **b)
 {
-    t_list	*tmp;
+	t_list	*tmp;
 
-    tmp = (*b)->next;
-    (*b)->next = *a;
-    *a = *b;
-    *b = tmp;
+	tmp = (*b)->next;
+	(*b)->next = *a;
+	*a = *b;
+	*b = tmp;
 	write(1, "pa\n", 3);
 }
