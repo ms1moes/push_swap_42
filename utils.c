@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 15:51:23 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/06/23 15:51:23 by msimoes-         ###   ########.fr       */
+/*   Created: 2022/09/28 22:35:32 by msimoes-          #+#    #+#             */
+/*   Updated: 2022/09/28 22:35:32 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check(t_list *a)
+int	split_parse(char *s)
 {
-	while (a->next)
-	{
-		if (a->info > a->next->info)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
+	int	i;
 
-int	is_sorted(t_list *a, t_list *b)
-{
-	if ((!a && !b) || (check(a) && !b))
-		return (1);
+	i = 0;
+	while (s[i])
+	{
+		if (((s[i] < '0' || s[i] > '9') && s[i] != ' ')
+			&& (s[i] != '-' && s[i] != '+'))
+			return (1);
+		if (s[i] == '-' || s[i] == '+')
+			if ((s[i + 1] < '0' || s[i + 1] > '9'))
+				return (1);
+		i++;
+	}
 	return (0);
 }

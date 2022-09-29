@@ -23,19 +23,21 @@ static int	duplicate_checker(t_list *a, int n)
 	return (0);
 }
 
-int	atoi_helper(char *str)
+int	parse_helper(char *str)
 {
 	int	i;
 	int	j;
 
 	i = -1;
 	j = 0;
-	if (str[0] == '\0')
-		return (1);
 	while (str[++i])
 	{
 		if (str[i] == '-' || str[i] == '+')
+		{
+			if (str[i + 1] < '0' || str[i + 1] > '9')
+				return (1);
 			j++;
+		}
 		if ((str[i] < '0' || str[i] > '9') && (str[i] != '-' && str[i] != '+'))
 			return (1);
 		if (j > 1)
@@ -53,7 +55,7 @@ long	ft_atoi(char *str)
 	n = 0;
 	sig = 1;
 	i = 0;
-	if (atoi_helper(str))
+	if (parse_helper(str))
 		return (2147483648);
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -103,8 +105,7 @@ int	parsing(int ac, char **av, t_list **a)
 			free_msg(a, 1);
 		if (duplicate_checker(*a, n) == 1)
 			free_msg(a, 1);
-		if (ft_lstadd_back(a, create_node(n)))
-			free_msg(a, 1);
+		ft_lstadd_back(a, create_node(n));
 	}
 	if (ac == 2)
 		free_split(av);

@@ -42,10 +42,10 @@ void	push_a(t_list **a, t_list **b);
 void	push_b(t_list **a, t_list **b);
 
 //lst_utils
-int		ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 //sorts
 void	sort_2(t_list **a);
@@ -63,7 +63,8 @@ void	find_min(t_list *a, int *n);
 void	find_max(t_list *a, int *n);
 void	find_min_max(t_list *a, int *max, int *min);
 void	set_index(t_list **a);
-int		ft_count_words(char const *str, char c);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 void	free_split(char **split);
+int		parse_helper(char *str);
+int		split_parse(char *s);
 #endif
