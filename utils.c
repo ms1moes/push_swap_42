@@ -23,7 +23,7 @@ int	split_parse(char *s)
 			&& (s[i] != '-' && s[i] != '+'))
 			return (1);
 		if (s[i] == '-' || s[i] == '+')
-			if ((s[i + 1] < '0' || s[i + 1] > '9'))
+			if ((s[i + 1] < '0' || s[i + 1] > '9') || s[i - 1] != ' ')
 				return (1);
 		i++;
 	}
