@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 18:35:23 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/28 22:09:43 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:24:37 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,4 @@ void	free_msg(t_list **a, int i)
 	if (*a)
 		free_a(a);
 	exit(i);
-}
-
-void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-		free(split[i++]);
-	free(split);
 }

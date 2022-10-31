@@ -56,15 +56,12 @@ void	radix_sort(t_list **a, t_list **b);
 int		is_sorted(t_list *a, t_list *b);
 
 //outras
-int		parsing(int ac, char **av, t_list **a);
+int		parsing(char **av, t_list **a);
 void	free_msg(t_list **a, int i);
 int		find_max_bits(t_list *a);
 void	find_min(t_list *a, int *n);
 void	find_max(t_list *a, int *n);
 void	find_min_max(t_list *a, int *max, int *min);
 void	set_index(t_list **a);
-char	**ft_split(char *s, char c);
-void	free_split(char **split);
 int		parse_helper(char *str);
-int		split_parse(char *s);
 #endif

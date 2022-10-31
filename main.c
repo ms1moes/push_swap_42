@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/09/28 22:33:31 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:26:22 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac <= 1)
 		free_msg(&a, 0);
-	if (parsing(ac, av, &a))
+	if (parsing(av, &a))
 		free_msg(&a, 1);
 	set_index(&a);
 	if (is_sorted(a, NULL))

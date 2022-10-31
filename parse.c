@@ -84,20 +84,13 @@ t_list	*create_node(int n)
 	return (node);
 }
 
-int	parsing(int ac, char **av, t_list **a)
+int	parsing(char **av, t_list **a)
 {
 	int		i;
 	long	n;
 
 	n = 0;
 	i = 0;
-	if (ac == 2)
-	{
-		i = -1;
-		av = ft_split(av[1], ' ');
-		if (!av)
-			free_msg(a, 1);
-	}
 	while (av[++i])
 	{
 		n = ft_atoi(av[i]);
@@ -107,7 +100,5 @@ int	parsing(int ac, char **av, t_list **a)
 			free_msg(a, 1);
 		ft_lstadd_back(a, create_node(n));
 	}
-	if (ac == 2)
-		free_split(av);
 	return (0);
 }

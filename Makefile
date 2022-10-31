@@ -13,14 +13,12 @@ SRC =	push.c\
 			sorted.c\
 			index.c\
 			radix.c\
-			split.c\
-			utils.c\
 
 OBJECTS = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 all: $(NAME)
 
