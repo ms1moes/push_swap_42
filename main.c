@@ -6,11 +6,12 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/10/31 16:26:22 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:37:17 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -36,5 +37,4 @@ int	main(int ac, char **av)
 		sort_5(&a, &b);
 	else
 		radix_sort(&a, &b);
-	free_msg(&a, 0);
 }

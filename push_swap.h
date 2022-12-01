@@ -54,6 +54,7 @@ void	sort_4(t_list **a, t_list **b);
 void	sort_5(t_list **a, t_list **b);
 void	radix_sort(t_list **a, t_list **b);
 int		is_sorted(t_list *a, t_list *b);
+int		check_a(t_list *a);
 
 //outras
 int		parsing(char **av, t_list **a);

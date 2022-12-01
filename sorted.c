@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	check(t_list *a)
+int	check_a(t_list *a)
 {
 	while (a->next)
 	{
@@ -25,7 +25,7 @@ static int	check(t_list *a)
 
 int	is_sorted(t_list *a, t_list *b)
 {
-	if ((!a && !b) || (check(a) && !b))
+	if ((!a && !b) || (check_a(a) && !b))
 		return (1);
 	return (0);
 }
