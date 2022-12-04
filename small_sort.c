@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:37:43 by msimoes-          #+#    #+#             */
-/*   Updated: 2022/12/01 20:36:41 by msimoes-         ###   ########.fr       */
+/*   Updated: 2022/12/04 06:55:44 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	sort_4(t_list **a, t_list **b)
 	while ((*a)->index != min && (*a)->index != max)
 		rotate_a(a);
 	push_b(a, b);
-	sort_3(a);
+	if (!check_a(*a))
+		sort_3(a);
 	push_a(a, b);
 	if ((*a)->index == max)
 		rotate_a(a);
